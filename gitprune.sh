@@ -15,7 +15,7 @@ PushLog="/dev/null"
 # Mensaje
 message=$@
 if [ -z "$message" ]; then
-message="$(date)2022-11-02 EMPIEZO KUBERNETES CON MODULOS PROFE"
+message="$(date)2022-11-02 HASTA EL 4-spring rest terminado"
 fi
 
 start=`date +%s`

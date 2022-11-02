@@ -1,0 +1,113 @@
+{
+	"info": {
+		"_postman_id": "ead98303-0814-4b8d-ae96-3e8cddbfb9b2",
+		"name": "Micro Alejandro",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "20953727"
+	},
+	"item": [
+		{
+			"name": "GetCharactersChuck",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/characters/chucknorris",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"characters",
+						"chucknorris"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetCharactersCerveza",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/characters/cerveza",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"characters",
+						"cerveza"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetCharactersGameOfThrones",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/characters/juegotronos",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"characters",
+						"juegotronos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "BuscaCharactersGameOfThrones",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/characters/juegotronos/Westbrook",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"characters",
+						"juegotronos",
+						"Westbrook"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetCharactersGameOfThronesPatron",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/characters/juegotronos/search?prefijo=Sun",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"characters",
+						"juegotronos",
+						"search"
+					],
+					"query": [
+						{
+							"key": "prefijo",
+							"value": "Sun"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
