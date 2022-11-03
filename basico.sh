@@ -15,7 +15,7 @@ PushLog="/dev/null"
 # Mensaje
 message=$@
 if [ -z "$message" ]; then
-message="$(date)2022-10-2PARECE QUE TODO OK"
+message="$(date)2022-11-03 ++cliente eureka"
 fi
 
 git add .
