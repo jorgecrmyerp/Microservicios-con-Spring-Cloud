@@ -108,6 +108,63 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "ConfigServerDefault",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8888/devs4j-dragon-ball/default",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"devs4j-dragon-ball",
+						"default"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ConfigServerDev",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8888/devs4j-dragon-ball/dev",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"devs4j-dragon-ball",
+						"dev"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ConfigServerProd",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8888/devs4j-dragon-ball/prod",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"devs4j-dragon-ball",
+						"prod"
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }

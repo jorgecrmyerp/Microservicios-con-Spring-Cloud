@@ -1,7 +1,0 @@
-spring:
-  application:
-      name: devs4j-auth   
-server:      
-  port: 8085
-jwt:
-  secret: devs4j-secret

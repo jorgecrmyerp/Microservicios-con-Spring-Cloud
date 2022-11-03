@@ -15,7 +15,7 @@ PushLog="/dev/null"
 # Mensaje
 message=$@
 if [ -z "$message" ]; then
-message="$(date)2022-11-02 HASTA EL 4-spring rest terminado"
+message="$(date)2022-11-03 PRIMERA SUBIDA DEL DIA"
 fi
 
 start=`date +%s`
