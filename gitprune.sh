@@ -15,7 +15,7 @@ PushLog="/dev/null"
 # Mensaje
 message=$@
 if [ -z "$message" ]; then
-message="$(date)2022-11-03 ++cliente eureka"
+message="$(date)2022-11-03 ++falla cliente eureka"
 fi
 
 start=`date +%s`

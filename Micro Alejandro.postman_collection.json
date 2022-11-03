@@ -165,6 +165,125 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "ConfigClient",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8082/application-name/",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"application-name",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ConfigClientActuator",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8082/actuator",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"actuator"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ConfigClientActuatorPOST",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "localhost:8082/actuator/refresh",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"actuator",
+						"refresh"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "EurekaJson",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:8761/eureka/apps",
+					"host": [
+						"localhost"
+					],
+					"port": "8761",
+					"path": [
+						"eureka",
+						"apps"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ConfigServer-Eureka-Client-Default",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8888/eureka-client/default",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"eureka-client",
+						"default"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ConfigClientCloudConfigGetName",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8082/application-name/",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"application-name",
+						""
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }

@@ -4,14 +4,16 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
+import org.springframework.cloud.openfeign.EnableFeignClients;
 
 @SpringBootApplication
 @EnableEurekaClient
 @EnableDiscoveryClient
-public class AeClienteEurkaApplication {
+@EnableFeignClients
+public class AeClienteEurekaApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(AeClienteEurkaApplication.class, args);
+		SpringApplication.run(AeClienteEurekaApplication.class, args);
 	}
 
 }
