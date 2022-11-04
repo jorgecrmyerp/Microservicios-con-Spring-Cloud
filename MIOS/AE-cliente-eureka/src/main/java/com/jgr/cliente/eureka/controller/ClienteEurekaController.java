@@ -44,6 +44,12 @@ public class ClienteEurekaController {
 		
 		return ResponseEntity.ok().body(aabasicoFeignClient.getCharactersGameOfThrones());
 	}
+	@GetMapping("/chucknorris")
+	public ResponseEntity<?> chuckNorris(){
+		
+		
+		return ResponseEntity.ok().body(aabasicoFeignClient.getCharactersChuck());
+	}
 	
 	
 	

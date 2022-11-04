@@ -284,6 +284,44 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "EurekaClientFeignJuegoDeTronos",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8003/eureka-client/juegodetronos",
+					"host": [
+						"localhost"
+					],
+					"port": "8003",
+					"path": [
+						"eureka-client",
+						"juegodetronos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "EurekaClientFeignChucknorris",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8003/eureka-client/chucknorris",
+					"host": [
+						"localhost"
+					],
+					"port": "8003",
+					"path": [
+						"eureka-client",
+						"chucknorris"
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }
