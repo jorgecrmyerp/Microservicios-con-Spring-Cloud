@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.github.javafaker.Faker;
 
 @RestController
-@RequestMapping("/failover")
+//@RequestMapping("/failover")
 public class FailOverController {
 
 	/** The faker. */
@@ -20,11 +20,14 @@ public class FailOverController {
 	/** The characters game. */
 	private List<String> charactersFailOver;
 
-	@GetMapping(value = { "", "/" })
+	@GetMapping(value = { "", "/yoda/","/superhero/" })
 	public ResponseEntity<?> getCharactersFailOver() {
 
 		charactersFailOver = new ArrayList<>();
-
+		charactersFailOver.add("*******************************************************");
+		charactersFailOver.add("***EN EL MICROSERVICIO FAILOVERCONTROLLER**************");
+		charactersFailOver.add("***EL PROFILE DEL GATEWAY-REDIRECCIONA NO ES noeureka**");
+		charactersFailOver.add("*******************************************************");
 		for (int i = 0; i < 10; i++) {
 			faker = new Faker();
 

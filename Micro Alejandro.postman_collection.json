@@ -436,6 +436,45 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "RedireccionaSuperhero",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:9090/superhero/",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"superhero",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ServicioConfiguracion",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8888/servicio-gateway/properties",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"servicio-gateway",
+						"properties"
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }

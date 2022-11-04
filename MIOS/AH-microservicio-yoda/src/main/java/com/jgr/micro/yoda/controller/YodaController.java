@@ -20,7 +20,7 @@ public class YodaController {
 	/** The characters game. */
 	private List<String> charactersYoda;
 
-	@GetMapping(value = { "", "/" })
+	@GetMapping(value={"/",""," "})
 	public ResponseEntity<?> getCharactersYoda() {
 
 		charactersYoda = new ArrayList<>();

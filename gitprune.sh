@@ -15,7 +15,7 @@ PushLog="/dev/null"
 # Mensaje
 message=$@
 if [ -z "$message" ]; then
-message="$(date)2022-11-04 REDIRECCIONA GATEWAY"
+message="$(date)2022-11-04 REDIRECCIONA GATEWAY OK"
 fi
 
 start=`date +%s`
