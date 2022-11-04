@@ -29,7 +29,7 @@ public class GatewayConfiguracion {
 		System.out.println("***************EN EUREKA********************");
 		System.out.println("perfil eureka->" + perfil);
 		return builder.routes().route(ruta -> ruta.path("/yoda/*")// cuando se ponga esto en el path
-				.uri("lb://micro-superhero-failover")) // se va aqui
+				.uri("lb://micro-yoda")) // se va aqui
 				.route(ruta -> ruta.path("/superhero/*")// cuando se ponga esto en el path
 						.uri("lb://micro-superhero-failover")) // se va aqui
 				.build()

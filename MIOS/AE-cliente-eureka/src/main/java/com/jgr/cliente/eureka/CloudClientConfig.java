@@ -11,7 +11,7 @@ import org.springframework.context.annotation.Configuration;
 public class CloudClientConfig {
 	
 	
-	@Value("${application.name}")
+	@Value("${spring.application.name}")
 	private String applicationName;
 	
 	public String getApplicationName() {

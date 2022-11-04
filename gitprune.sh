@@ -15,7 +15,7 @@ PushLog="/dev/null"
 # Mensaje
 message=$@
 if [ -z "$message" ]; then
-message="$(date)2022-11-04 NUEVOS SERVICIOS RESILIENCIA"
+message="$(date)2022-11-04 PTE TERMINAR RESILIENCIA"
 fi
 
 start=`date +%s`
