@@ -15,7 +15,7 @@ PushLog="/dev/null"
 # Mensaje
 message=$@
 if [ -z "$message" ]; then
-message="$(date)2022-11-04 FEIGN LOAD BALANCER"
+message="$(date)2022-11-04 ++MICROSERVICIOS HEROES Y YODA"
 fi
 
 start=`date +%s`

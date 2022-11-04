@@ -2,6 +2,7 @@ package com.jgr.basico.controller;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 import java.util.stream.Collectors;
 
 import javax.annotation.PostConstruct;
@@ -42,6 +43,10 @@ public class CharacterController {
 
 	/** The characters game. */
 	private List<String> charactersGame;
+	/** The characters game. */
+	private List<String> charactersYoda;
+	/** The characters game. */
+	private List<String> charactersWitcher;
 
 	/**
 	 * Inicio. carga las listas con los datos
@@ -51,6 +56,9 @@ public class CharacterController {
 		charactersChuck = new ArrayList<>();
 		charactersBeer = new ArrayList<>();
 		charactersGame = new ArrayList<>();
+		charactersYoda = new ArrayList<>();
+		charactersWitcher = new ArrayList<>();
+		
 
 		for (int i = 0; i < 10; i++) {
 			faker = new Faker();
@@ -58,6 +66,8 @@ public class CharacterController {
 			charactersBeer.add(faker.beer().name().concat(" ").concat(faker.beer().yeast()));
 			charactersChuck.add(faker.chuckNorris().fact());
 			charactersGame.add(faker.gameOfThrones().dragon());
+			charactersYoda.add(faker.yoda().quote());
+			charactersWitcher.add(faker.witcher().monster());
 
 		}
 
@@ -96,6 +106,19 @@ public class CharacterController {
 
 		return ResponseEntity.ok(charactersGame);
 
+	}
+	
+	@GetMapping("/yoda")
+	public ResponseEntity<?> getCharactersYoda() {
+		
+		return ResponseEntity.ok(charactersYoda);
+		
+	}
+	@GetMapping("/witcher")
+	public ResponseEntity<?> getCharactersWitcher() {
+		
+		return ResponseEntity.ok(charactersWitcher);
+		
 	}
 
 	/**

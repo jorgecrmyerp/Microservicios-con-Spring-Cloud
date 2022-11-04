@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.jgr.cliente.feign.loadbalancer.CloudClientConfig;
-import com.jgr.cliente.feign.loadbalancer.feign.client.AabasicoFeignClient;
+import com.jgr.cliente.feign.loadbalancer.feign.client.LoadBalancerFeignClient;
 import com.netflix.discovery.EurekaClient;
 
 /**
@@ -20,7 +20,7 @@ import com.netflix.discovery.EurekaClient;
  * conecta con los metodos de aa-basico
  */
 
-@RequestMapping("/eureka-client")
+@RequestMapping("/feign-client")
 @RestController
 public class ClienteEurekaController {
 
@@ -30,20 +30,10 @@ public class ClienteEurekaController {
 	private EurekaClient eurekaClient;
 	
 	@Autowired
-	private AabasicoFeignClient aabasicoFeignClient;
+	private LoadBalancerFeignClient aabasicoFeignClient;
 	
 	
-	@GetMapping("/propiedades")
-	public ResponseEntity<?> getAppName(){
-		Map<String,String> propiedades = new HashMap<>();
-		
-		//propiedades.put("cloudClientConfig.getApplicationName()", cloudClientConfig.getApplicationName());
-		propiedades.put("eurekaClient.getEurekaClientConfig().getProxyPort().toString()", eurekaClient.getEurekaClientConfig().getProxyPort().toString());
-		propiedades.put("eurekaClient.getEurekaClientConfig().getClientDataAccept().toString()", eurekaClient.getEurekaClientConfig().getClientDataAccept().toString());
-		
-		
-		return ResponseEntity.ok().body(propiedades);
-	}
+	
 	@GetMapping("/juegodetronos")
 	public ResponseEntity<?> juegoDeTronos(){
 				
@@ -55,6 +45,19 @@ public class ClienteEurekaController {
 		
 		
 		return ResponseEntity.ok().body(aabasicoFeignClient.getCharactersChuck());
+	}
+	
+	@GetMapping("/yoda")
+	public ResponseEntity<?> yoda(){
+		
+		
+		return ResponseEntity.ok().body(aabasicoFeignClient.getCharactersYoda());
+	}
+	@GetMapping("/witcher")
+	public ResponseEntity<?> witcher(){
+		
+		
+		return ResponseEntity.ok().body(aabasicoFeignClient.getCharactersWitcher());
 	}
 	
 	

@@ -291,11 +291,11 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:8003/eureka-client/juegodetronos",
+					"raw": "localhost:8083/eureka-client/juegodetronos",
 					"host": [
 						"localhost"
 					],
-					"port": "8003",
+					"port": "8083",
 					"path": [
 						"eureka-client",
 						"juegodetronos"
@@ -310,14 +310,52 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:8003/eureka-client/chucknorris",
+					"raw": "localhost:8083/eureka-client/chucknorris",
 					"host": [
 						"localhost"
 					],
-					"port": "8003",
+					"port": "8083",
 					"path": [
 						"eureka-client",
 						"chucknorris"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "FeignClientYoda",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8084/feign-client/yoda",
+					"host": [
+						"localhost"
+					],
+					"port": "8084",
+					"path": [
+						"feign-client",
+						"yoda"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "FeignClientWitcher",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8084/feign-client/witcher",
+					"host": [
+						"localhost"
+					],
+					"port": "8084",
+					"path": [
+						"feign-client",
+						"witcher"
 					]
 				}
 			},
