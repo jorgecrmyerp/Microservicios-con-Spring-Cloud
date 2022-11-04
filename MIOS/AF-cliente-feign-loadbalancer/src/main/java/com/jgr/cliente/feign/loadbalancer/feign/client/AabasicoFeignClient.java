@@ -1,4 +1,4 @@
-package com.jgr.cliente.eureka.feign.client;
+package com.jgr.cliente.feign.loadbalancer.feign.client;
 
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;

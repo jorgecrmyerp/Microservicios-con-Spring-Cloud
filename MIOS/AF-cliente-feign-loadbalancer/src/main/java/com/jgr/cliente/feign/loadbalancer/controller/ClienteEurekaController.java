@@ -1,4 +1,4 @@
-package com.jgr.cliente.eureka.controller;
+package com.jgr.cliente.feign.loadbalancer.controller;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.jgr.cliente.eureka.CloudClientConfig;
-import com.jgr.cliente.eureka.feign.client.AabasicoFeignClient;
+import com.jgr.cliente.feign.loadbalancer.CloudClientConfig;
+import com.jgr.cliente.feign.loadbalancer.feign.client.AabasicoFeignClient;
 import com.netflix.discovery.EurekaClient;
 
 /**

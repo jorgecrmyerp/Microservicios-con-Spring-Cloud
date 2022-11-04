@@ -1,4 +1,4 @@
-package com.jgr.cliente.eureka;
+package com.jgr.cliente.feign.loadbalancer;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

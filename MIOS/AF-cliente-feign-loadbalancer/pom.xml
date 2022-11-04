@@ -7,10 +7,10 @@
 		<version>2.7.5</version>
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.jgr.cliente.eureka</groupId>
-	<artifactId>AE-cliente-eureka</artifactId>
+	<groupId>com.jgr.cliente.feign.loadbalancer</groupId>
+	<artifactId>AF-cliente-feign-loadbalancer</artifactId>
 	<version>V1</version>
-	<name>AE-cliente-eureka</name>
+	<name>AF-cliente-feign-loadbalancer</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
 		<java.version>11</java.version>

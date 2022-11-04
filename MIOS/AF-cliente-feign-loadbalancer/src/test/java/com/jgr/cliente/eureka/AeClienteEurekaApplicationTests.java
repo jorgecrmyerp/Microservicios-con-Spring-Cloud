@@ -1,10 +1,10 @@
-package com.jgr.basico.consola;
+package com.jgr.cliente.eureka;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class AaBasicoConsolaApplicationTests {
+class AeClienteEurekaApplicationTests {
 
 	@Test
 	void contextLoads() {
