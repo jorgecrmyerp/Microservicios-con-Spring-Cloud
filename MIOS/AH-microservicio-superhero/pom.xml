@@ -8,9 +8,9 @@
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.jgr.micro.superhero</groupId>
-	<artifactId>AH-microservicio-yoda</artifactId>
+	<artifactId>AH-microservicio-superhero</artifactId>
 	<version>V1</version>
-	<name>AH-microservicio-yoda</name>
+	<name>AH-microservicio-superhero</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
 		<java.version>11</java.version>

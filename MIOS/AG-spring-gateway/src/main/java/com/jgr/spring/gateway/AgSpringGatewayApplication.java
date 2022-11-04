@@ -8,6 +8,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * The Class AgSpringGatewayApplication.
  * ESTE ES CLIENTE DE EUREKA
  * PARA USAR CON FAILOVER,SUPERHERO Y YODA
+ * REVISAR EL GATEWAYCONFIGURATION, LO REDIRIJO A UNA RUTA U OTRA DEPENDIENDO DE LA URI
  * 
  */
 @SpringBootApplication
