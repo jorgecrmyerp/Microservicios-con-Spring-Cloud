@@ -1,10 +1,10 @@
-package com.jgr.spring.gateway;
+package com.jgr.spring.gateway.resiliencia;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /**
- * The Class AgSpringGatewayApplication.
+ * The Class AiSpringGatewayResilienciaApplication.
  * ESTE ES CLIENTE DE EUREKA Y NECESITA TAMBIEN EL CONFIGURACION CLOUD SERVER
  * PARA USAR CON FAILOVER,SUPERHERO Y YODA
  * REVISAR EL GATEWAYCONFIGURATION, LO REDIRIJO A UNA RUTA U OTRA DEPENDIENDO DE LA URI
@@ -14,7 +14,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * registrado en eureka 
  */
 @SpringBootApplication
-public class AgSpringGatewayApplication {
+public class AiSpringGatewayResilienciaApplication {
 
 	/**
 	 * The main method.
@@ -22,7 +22,7 @@ public class AgSpringGatewayApplication {
 	 * @param args the arguments
 	 */
 	public static void main(String[] args) {
-		SpringApplication.run(AgSpringGatewayApplication.class, args);
+		SpringApplication.run(AiSpringGatewayResilienciaApplication.class, args);
 	}
 
 }

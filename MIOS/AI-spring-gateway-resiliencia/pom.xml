@@ -8,10 +8,10 @@
 		<version>2.7.5</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.jgr.spring.gateway</groupId>
-	<artifactId>AG-spring-gateway-redirecciona</artifactId>
+	<groupId>com.jgr.spring.gateway.resiliencia</groupId>
+	<artifactId>AI-spring-gateway-resiliencia</artifactId>
 	<version>V1</version>
-	<name>AG-spring-gateway-redirecciona</name>
+	<name>AI-spring-gateway-resiliencia</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
 		<java.version>11</java.version>

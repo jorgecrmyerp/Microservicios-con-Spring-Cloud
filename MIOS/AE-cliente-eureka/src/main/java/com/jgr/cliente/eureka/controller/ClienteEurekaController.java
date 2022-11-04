@@ -26,6 +26,7 @@ public class ClienteEurekaController {
 
 	@Autowired
 	private CloudClientConfig cloudClientConfig;
+	
 	@Autowired
 	private EurekaClient eurekaClient;
 	
