@@ -6,10 +6,10 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
 @SpringBootApplication
 @EnableDiscoveryClient
-public class AhMicroservicioYodaApplication {
+public class AhMicroservicioSuperheroApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(AhMicroservicioYodaApplication.class, args);
+		SpringApplication.run(AhMicroservicioSuperheroApplication.class, args);
 	}
 
 }

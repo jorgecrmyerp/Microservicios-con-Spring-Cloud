@@ -1,4 +1,4 @@
-package com.jgr.micro.superhero.controller;
+package com.jgr.micro.failover.superhero.controller;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,29 +11,29 @@ import org.springframework.web.bind.annotation.RestController;
 import com.github.javafaker.Faker;
 
 @RestController
-@RequestMapping("superhero")
-public class SuperHeroController {
+@RequestMapping("failover")
+public class FailOverController {
 
 	/** The faker. */
 	private Faker faker;
 
 	/** The characters game. */
-	private List<String> charactersSuperhero;
+	private List<String> charactersFailOver;
 
-	@GetMapping("/superhero")
-	public ResponseEntity<?> getCharactersDune() {
+	@GetMapping("/failover")
+	public ResponseEntity<?> getCharactersFailOver() {
 
-		charactersSuperhero = new ArrayList<>();
+		charactersFailOver = new ArrayList<>();
 
 		for (int i = 0; i < 10; i++) {
 			faker = new Faker();
 
-			charactersSuperhero.add(faker.superhero().name().concat("->").concat(faker.superhero().power()).concat("->")
-					.concat(faker.superhero().prefix()));
+			charactersFailOver.add(faker.lordOfTheRings().character().concat("->")
+					.concat(new Faker().lordOfTheRings().location()));
 
 		}
 
-		return ResponseEntity.ok(charactersSuperhero);
+		return ResponseEntity.ok(charactersFailOver);
 
 	}
 

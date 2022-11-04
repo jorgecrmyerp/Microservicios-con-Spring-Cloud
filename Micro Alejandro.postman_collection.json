@@ -360,6 +360,44 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "ServicioYoda",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8086/yoda/yoda",
+					"host": [
+						"localhost"
+					],
+					"port": "8086",
+					"path": [
+						"yoda",
+						"yoda"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ServicioSuperHeroe",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8085/superhero/superhero",
+					"host": [
+						"localhost"
+					],
+					"port": "8085",
+					"path": [
+						"superhero",
+						"superhero"
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }
