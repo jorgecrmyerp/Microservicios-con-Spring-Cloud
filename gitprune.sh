@@ -15,7 +15,7 @@ PushLog="/dev/null"
 # Mensaje
 message=$@
 if [ -z "$message" ]; then
-message="$(date)2022-11-04 ++MICROSERVICIOS HEROES Y YODA"
+message="$(date)2022-11-04 REDIRECCIONA GATEWAY"
 fi
 
 start=`date +%s`

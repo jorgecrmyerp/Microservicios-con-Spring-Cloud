@@ -10,7 +10,15 @@ public class GatewayConfiguracion {
 
 	@Bean
 	public RouteLocator configLocalNoEureka(RouteLocatorBuilder builder) {
-		return builder.routes().build();
+		return builder.routes()
+				.route(ruta->ruta.path("/yoda/*")//cuando se ponga esto en el path
+						.uri("http://localhost:8087")) //se va aqui
+				.route(ruta->ruta.path("/superhero/*")//cuando se ponga esto en el path
+						.uri("http://localhost:8085")) //se va aqui
+				.build()
+				
+				
+				;
 	}
 
 }

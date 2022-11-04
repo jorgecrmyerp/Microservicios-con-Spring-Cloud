@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.github.javafaker.Faker;
 
 @RestController
-@RequestMapping("yoda")
+@RequestMapping("/yoda")
 public class YodaController {
 
 	/** The faker. */
@@ -20,7 +20,7 @@ public class YodaController {
 	/** The characters game. */
 	private List<String> charactersYoda;
 
-	@GetMapping("/yoda")
+	@GetMapping(value = { "", "/" })
 	public ResponseEntity<?> getCharactersYoda() {
 
 		charactersYoda = new ArrayList<>();

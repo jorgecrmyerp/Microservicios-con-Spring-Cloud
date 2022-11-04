@@ -367,14 +367,14 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:8086/yoda/yoda",
+					"raw": "localhost:8087/yoda/",
 					"host": [
 						"localhost"
 					],
-					"port": "8086",
+					"port": "8087",
 					"path": [
 						"yoda",
-						"yoda"
+						""
 					]
 				}
 			},
@@ -386,14 +386,52 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:8085/superhero/superhero",
+					"raw": "localhost:8085/superhero/",
 					"host": [
 						"localhost"
 					],
 					"port": "8085",
 					"path": [
 						"superhero",
-						"superhero"
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ServicioFailOver",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8086/failover/",
+					"host": [
+						"localhost"
+					],
+					"port": "8086",
+					"path": [
+						"failover",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "RedireccionaYoda",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:9090/yoda/",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"yoda",
+						""
 					]
 				}
 			},

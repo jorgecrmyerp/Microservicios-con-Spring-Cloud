@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.github.javafaker.Faker;
 
 @RestController
-@RequestMapping("failover")
+@RequestMapping("/failover")
 public class FailOverController {
 
 	/** The faker. */
@@ -20,7 +20,7 @@ public class FailOverController {
 	/** The characters game. */
 	private List<String> charactersFailOver;
 
-	@GetMapping("/failover")
+	@GetMapping(value = { "", "/" })
 	public ResponseEntity<?> getCharactersFailOver() {
 
 		charactersFailOver = new ArrayList<>();
@@ -28,8 +28,8 @@ public class FailOverController {
 		for (int i = 0; i < 10; i++) {
 			faker = new Faker();
 
-			charactersFailOver.add(faker.lordOfTheRings().character().concat("->")
-					.concat(new Faker().lordOfTheRings().location()));
+			charactersFailOver.add(
+					faker.lordOfTheRings().character().concat("->").concat(new Faker().lordOfTheRings().location()));
 
 		}
 
