@@ -1,0 +1,729 @@
+{
+	"info": {
+		"_postman_id": "ead98303-0814-4b8d-ae96-3e8cddbfb9b2",
+		"name": "Micro Alejandro",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "20953727"
+	},
+	"item": [
+		{
+			"name": "GetCharactersChuck",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/characters/chucknorris",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"characters",
+						"chucknorris"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetCharactersCerveza",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/characters/cerveza",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"characters",
+						"cerveza"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetCharactersGameOfThrones",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/characters/juegotronos",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"characters",
+						"juegotronos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "BuscaCharactersGameOfThrones",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/characters/juegotronos/Westbrook",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"characters",
+						"juegotronos",
+						"Westbrook"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetCharactersGameOfThronesPatron",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/characters/juegotronos/search?prefijo=Sun",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"characters",
+						"juegotronos",
+						"search"
+					],
+					"query": [
+						{
+							"key": "prefijo",
+							"value": "Sun"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ConfigServerDefault",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8888/devs4j-dragon-ball/default",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"devs4j-dragon-ball",
+						"default"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ConfigServerDev",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8888/devs4j-dragon-ball/dev",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"devs4j-dragon-ball",
+						"dev"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ConfigServerProd",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8888/devs4j-dragon-ball/prod",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"devs4j-dragon-ball",
+						"prod"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ConfigClient",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8082/application-name/",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"application-name",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ConfigClientActuator",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8082/actuator",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"actuator"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ConfigClientActuatorPOST",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "localhost:8082/actuator/refresh",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"actuator",
+						"refresh"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "EurekaJson",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:8761/eureka/apps",
+					"host": [
+						"localhost"
+					],
+					"port": "8761",
+					"path": [
+						"eureka",
+						"apps"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ConfigServer-Eureka-Client-Default",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8888/eureka-client/default",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"eureka-client",
+						"default"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ConfigClientCloudConfigGetName",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8082/application-name/",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"application-name",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "EurekaClientFeignJuegoDeTronos",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8083/eureka-client/juegodetronos",
+					"host": [
+						"localhost"
+					],
+					"port": "8083",
+					"path": [
+						"eureka-client",
+						"juegodetronos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "EurekaClientFeignChucknorris",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8083/eureka-client/chucknorris",
+					"host": [
+						"localhost"
+					],
+					"port": "8083",
+					"path": [
+						"eureka-client",
+						"chucknorris"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "FeignClientYoda",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8084/feign-client/yoda",
+					"host": [
+						"localhost"
+					],
+					"port": "8084",
+					"path": [
+						"feign-client",
+						"yoda"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "FeignClientWitcher",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8084/feign-client/witcher",
+					"host": [
+						"localhost"
+					],
+					"port": "8084",
+					"path": [
+						"feign-client",
+						"witcher"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ServicioYoda",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8087/yoda/",
+					"host": [
+						"localhost"
+					],
+					"port": "8087",
+					"path": [
+						"yoda",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ServicioSuperHeroe",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8085/superhero/",
+					"host": [
+						"localhost"
+					],
+					"port": "8085",
+					"path": [
+						"superhero",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ServicioFailOver",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8086/failover/",
+					"host": [
+						"localhost"
+					],
+					"port": "8086",
+					"path": [
+						"failover",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "RedireccionaYoda",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:9090/yoda/",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"yoda",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "RedireccionaSuperhero",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:9090/superhero/",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"superhero",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ServicioConfiguracion",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8888/servicio-gateway/properties",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"servicio-gateway",
+						"properties"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ResilienciaYoda",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8087/yoda/",
+					"host": [
+						"localhost"
+					],
+					"port": "8087",
+					"path": [
+						"yoda",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ResilienciaYodaCircuitBreakerMetodo",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8087/yoda/circuit/",
+					"host": [
+						"localhost"
+					],
+					"port": "8087",
+					"path": [
+						"yoda",
+						"circuit",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ZipkinYoda",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:9090/api/yoda/",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"api",
+						"yoda",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ZipkinSuperHero",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:9090/api/superhero",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"api",
+						"superhero"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "MetricasYoda",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8082/actuator/metrics",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"actuator",
+						"metrics"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "MetricasSuperHero",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8083/actuator/metrics",
+					"host": [
+						"localhost"
+					],
+					"port": "8083",
+					"path": [
+						"actuator",
+						"metrics"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "MetricasSuperHeroHttpRequest",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8083/actuator/metrics/http.server.requests",
+					"host": [
+						"localhost"
+					],
+					"port": "8083",
+					"path": [
+						"actuator",
+						"metrics",
+						"http.server.requests"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "MetricasYodaHttpRequest",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8082/actuator/metrics/http.server.requests",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"actuator",
+						"metrics",
+						"http.server.requests"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ConsultaYoda",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8082/yoda/",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"yoda",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "MetricasYodaHttpRequestFiltroUri",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8082/actuator/metrics/http.server.requests?tag=uri:/yoda&tag=status:200",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"actuator",
+						"metrics",
+						"http.server.requests"
+					],
+					"query": [
+						{
+							"key": "tag",
+							"value": "uri:/yoda"
+						},
+						{
+							"key": "tag",
+							"value": "status:200"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "MetricasGateway",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:9090/actuator",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"actuator"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "MetricasGateway",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:9090/actuator/metrics/jvm.memory.used?tag:area:heap",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"actuator",
+						"metrics",
+						"jvm.memory.used"
+					],
+					"query": [
+						{
+							"key": "tag:area:heap",
+							"value": null
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

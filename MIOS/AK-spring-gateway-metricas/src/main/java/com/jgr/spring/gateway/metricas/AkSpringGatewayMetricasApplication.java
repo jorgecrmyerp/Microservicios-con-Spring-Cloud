@@ -9,6 +9,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * PARA USAR CON FAILOVER,SUPERHERO Y YODA
  *Metricas de los microservicios
  *incluimos PROMETHEUS como starter
+ *localhost:8082/actuator/metrics/http.server.requests?tag=uri:/yoda&tag=status:200->sacaria las llamadas al 
+ *endpoint yoda que han ido bien
+ *
+ *localhost:9090/actuator/metrics/jvm.classes.loaded->saca las clases que estan cargadas en la jvm
  */
 @SpringBootApplication
 public class AkSpringGatewayMetricasApplication {

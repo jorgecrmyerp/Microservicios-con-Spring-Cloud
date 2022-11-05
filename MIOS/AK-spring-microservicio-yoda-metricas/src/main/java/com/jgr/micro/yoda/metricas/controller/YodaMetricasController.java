@@ -4,8 +4,6 @@ import java.util.ArrayList;
 import java.util.EmptyStackException;
 import java.util.List;
 
-import javax.annotation.PostConstruct;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,8 +17,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.github.javafaker.Faker;
 import com.jgr.micro.yoda.metricas.feign.client.SuperHeroClientFeign;
 
-import brave.Span;
-import brave.Tracer;
 import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
 
 
