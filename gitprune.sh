@@ -15,7 +15,7 @@ PushLog="/dev/null"
 # Mensaje
 message=$@
 if [ -z "$message" ]; then
-message="$(date)2022-11-04 PTE TERMINAR RESILIENCIA"
+message="$(date)2022-11-05 PRIMERA SUBIDA DEL DIA"
 fi
 
 start=`date +%s`
