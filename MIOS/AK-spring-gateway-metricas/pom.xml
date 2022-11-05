@@ -8,10 +8,10 @@
 		<version>2.7.5</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.jgr.spring.gateway.zipkin.sleuth</groupId>
-	<artifactId>AJ-spring-gateway-zipkin-sleuth</artifactId>
+	<groupId>com.jgr.spring.gateway.metricas</groupId>
+	<artifactId>AK-spring-gateway-metricas</artifactId>
 	<version>V1</version>
-	<name>AJ-spring-gateway-zipkin-sleuth</name>
+	<name>AK-spring-gateway-metricas</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
 		<java.version>11</java.version>
@@ -47,14 +47,7 @@
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-circuitbreaker-resilience4j</artifactId>
 		</dependency>
-		<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-sleuth-zipkin</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-sleuth</artifactId>
-		</dependency>
+		
 	</dependencies>
 	<dependencyManagement>
 		<dependencies>

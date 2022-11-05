@@ -1,17 +1,16 @@
-package com.jgr.spring.gateway.resiliencia;
+package com.jgr.spring.gateway.zipkin.sleuth;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /**
- * The Class AjSpringGatewayResilienciaApplication.
+ * The Class AjSpringGatewayZipkinSleuthApplication.
  * ESTE ES CLIENTE DE EUREKA Y NECESITA TAMBIEN EL CONFIGURACION CLOUD SERVER
  * PARA USAR CON FAILOVER,SUPERHERO Y YODA
- * EN CASO DE ERROR DESDE YODA SE MANDA A UN SERVICIO U OTRO DEPENDIENDO DEL METODO INVOCADO
- * CON  circuitBreakerFactory O CON fallbackMethod="alternativaError"
+ * uso de zipkin y sleuth para hacer un trace de las llamadas
  */
 @SpringBootApplication
-public class AjSpringGatewayResilienciaApplication {
+public class AjSpringGatewayZipkinSleuthApplication {
 
 	/**
 	 * The main method.
@@ -19,7 +18,7 @@ public class AjSpringGatewayResilienciaApplication {
 	 * @param args the arguments
 	 */
 	public static void main(String[] args) {
-		SpringApplication.run(AjSpringGatewayResilienciaApplication.class, args);
+		SpringApplication.run(AjSpringGatewayZipkinSleuthApplication.class, args);
 	}
 
 }

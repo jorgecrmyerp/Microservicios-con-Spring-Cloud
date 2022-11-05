@@ -5,7 +5,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @FeignClient(name="micro-superhero-zipkin-sleuth")
-public interface  SuperHeroClientFeign {
+public interface  SuperHeroZipkinSleuthClientFeign {
 
 	@GetMapping(value = {"/superhero/" })
 	public ResponseEntity<?> getCharactersFailOver(); 

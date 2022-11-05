@@ -23,7 +23,7 @@ import brave.Tracer;
 
 @RestController
 //@RequestMapping("/failover")
-public class SuperHeroController {
+public class SuperHeroZipkinSleuthController {
 
 	/** The faker. */
 	private Faker faker;
@@ -41,7 +41,7 @@ public class SuperHeroController {
 	@Value("${eureka.instance.instance-id}")
 	private String instanceId;
 	
-	private static final Logger log =LoggerFactory.getLogger(SuperHeroController.class);
+	private static final Logger log =LoggerFactory.getLogger(SuperHeroZipkinSleuthController.class);
 	
 	@PostConstruct	
 	public void inicio() {

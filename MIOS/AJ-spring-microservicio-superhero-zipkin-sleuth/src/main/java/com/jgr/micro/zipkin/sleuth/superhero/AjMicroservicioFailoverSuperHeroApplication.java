@@ -6,10 +6,10 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
 @SpringBootApplication
 @EnableDiscoveryClient
-public class AhMicroservicioFailoverSuperHeroApplication {
+public class AjMicroservicioFailoverSuperHeroApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(AhMicroservicioFailoverSuperHeroApplication.class, args);
+		SpringApplication.run(AjMicroservicioFailoverSuperHeroApplication.class, args);
 	}
 
 }
