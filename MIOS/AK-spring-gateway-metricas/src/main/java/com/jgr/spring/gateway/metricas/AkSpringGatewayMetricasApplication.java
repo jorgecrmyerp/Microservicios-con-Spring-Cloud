@@ -8,6 +8,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * ESTE ES CLIENTE DE EUREKA Y NECESITA TAMBIEN EL CONFIGURACION CLOUD SERVER
  * PARA USAR CON FAILOVER,SUPERHERO Y YODA
  *Metricas de los microservicios
+ *incluimos PROMETHEUS como starter
  */
 @SpringBootApplication
 public class AkSpringGatewayMetricasApplication {
