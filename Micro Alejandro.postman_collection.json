@@ -475,6 +475,45 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "ResilienciaYoda",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8087/yoda/",
+					"host": [
+						"localhost"
+					],
+					"port": "8087",
+					"path": [
+						"yoda",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ResilienciaYodaCircuitBreakerMetodo",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8087/yoda/circuit/",
+					"host": [
+						"localhost"
+					],
+					"port": "8087",
+					"path": [
+						"yoda",
+						"circuit",
+						""
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }

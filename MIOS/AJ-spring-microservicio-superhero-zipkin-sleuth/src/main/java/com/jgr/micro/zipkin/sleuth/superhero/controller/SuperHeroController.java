@@ -1,4 +1,4 @@
-package com.jgr.micro.failover.superhero.controller;
+package com.jgr.micro.zipkin.sleuth.superhero.controller;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,7 +11,7 @@ import com.github.javafaker.Faker;
 
 @RestController
 //@RequestMapping("/failover")
-public class FailOverController {
+public class SuperHeroController {
 
 	/** The faker. */
 	private Faker faker;
@@ -19,7 +19,7 @@ public class FailOverController {
 	/** The characters game. */
 	private List<String> charactersFailOver;
 
-	@GetMapping(value = { "", "/yoda/","/superhero/" })
+	@GetMapping(value = {"/superhero" })
 	public ResponseEntity<?> getCharactersFailOver() {
 
 		charactersFailOver = new ArrayList<>();
