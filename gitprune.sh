@@ -15,7 +15,7 @@ PushLog="/dev/null"
 # Mensaje
 message=$@
 if [ -z "$message" ]; then
-message="$(date)2022-11-05 FUNCIONA EL CIRCUITBREAKER"
+message="$(date)2022-11-05 ACABADO ZIPKIN"
 fi
 
 start=`date +%s`
