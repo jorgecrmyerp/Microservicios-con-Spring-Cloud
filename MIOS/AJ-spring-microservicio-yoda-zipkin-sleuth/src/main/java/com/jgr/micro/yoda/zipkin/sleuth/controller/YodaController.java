@@ -4,7 +4,13 @@ import java.util.ArrayList;
 import java.util.EmptyStackException;
 import java.util.List;
 
+import javax.annotation.PostConstruct;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext;
 import org.springframework.cloud.client.circuitbreaker.CircuitBreakerFactory;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,6 +19,9 @@ import org.springframework.web.bind.annotation.RestController;
 import com.github.javafaker.Faker;
 import com.jgr.micro.yoda.zipkin.sleuth.feign.client.SuperHeroClientFeign;
 
+
+import brave.Span;
+import brave.Tracer;
 import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
 
 
@@ -38,6 +47,27 @@ public class YodaController {
 
 	/** The characters game. */
 	private List<String> charactersYoda;
+	
+	@Autowired
+	private ServletWebServerApplicationContext webServerAppCtxt;
+	
+	/** The instance id. */
+	@Value("${eureka.instance.instance-id}")
+	private String instanceId;
+	
+	
+	@Autowired
+	private Tracer tracer;
+	
+	private static final Logger log =LoggerFactory.getLogger(YodaController.class);
+	
+	@PostConstruct	
+	public void inicio() {
+		Span newSpan = tracer.nextSpan().name(instanceId);
+		log.info("inicio");		
+		
+	}
+
 
 	/**
 	 * Gets the characters yoda.
@@ -46,7 +76,8 @@ public class YodaController {
 	 */
 	@GetMapping(value = { "/", "", " ", "/yoda" })
 	public ResponseEntity<?> getCharactersYoda() {
-		System.out.println("**************YODA CONTROLLER getCharactersYoda()***********************");
+		log.info(" getCharactersYoda()");		
+	
 
 		return (ResponseEntity<?>) circuitBreakerFactory.create("micro-yoda-resiliencia").run(
 				() -> ResponseEntity.ok(devuelveCaracteres()), // esto es lo que haria si va bien
@@ -63,7 +94,7 @@ public class YodaController {
 	@CircuitBreaker(name = "micro-yoda-resiliencia",fallbackMethod="alternativaError")
 	@GetMapping(value = { "/yoda/circuit" })	
 	public ResponseEntity<?> circuitBreakerYoda() {
-		System.out.println("**************YODA CONTROLLER  circuitBreakerYoda() ***********************");
+		log.info(" circuitBreakerYoda()");		
 
 		return ResponseEntity.ok(devuelveCaracteres());
 	}
@@ -74,6 +105,7 @@ public class YodaController {
 	 * @return the iterable
 	 */
 	private Iterable<String> devuelveCaracteres() {
+		log.info(" devuelveCaracteres()");		
 		charactersYoda = new ArrayList<>();
 
 		for (int i = 0; i < 10; i++) {
@@ -97,9 +129,8 @@ public class YodaController {
 	 * @return the response entity
 	 */
 	private ResponseEntity<?> alternativaError(Throwable e) {
-		System.out.println("dentro del metodo alternativa error"+ e.getLocalizedMessage() 
-		+e.getMessage());
-		
+		log.info("alternativaError" + e.getLocalizedMessage() 
+				+e.getMessage());		
 		
 		return  superHeroClientFeign.getCharactersFailOver();
 		
