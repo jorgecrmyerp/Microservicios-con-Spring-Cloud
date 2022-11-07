@@ -1,4 +1,4 @@
-package com.jgr.basico.error;
+package com.jgr.basico.spring.doc.error;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;

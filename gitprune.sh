@@ -15,7 +15,7 @@ PushLog="/dev/null"
 # Mensaje
 message=$@
 if [ -z "$message" ]; then
-message="$(date)2022-11-07 EMPEZANDO CON CLOUD STREAM"
+message="$(date)2022-11-07 TERMINADO APIDOC"
 fi
 
 start=`date +%s`

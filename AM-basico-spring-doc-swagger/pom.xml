@@ -7,10 +7,10 @@
 		<version>2.7.5</version>
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.jgr.basico</groupId>
-	<artifactId>AA-basico</artifactId>
+	<groupId>com.jgr.basico.spring.doc</groupId>
+	<artifactId>AM-basico-spring-doc-swagger</artifactId>
 	<version>V1</version>
-	<name>aa-basico</name>
+	<name>AM-basico-spring-doc-swagger</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
 		<java.version>11</java.version>
@@ -46,6 +46,13 @@
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-openfeign</artifactId>
 		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.springdoc/springdoc-openapi-ui -->
+		<dependency>
+			<groupId>org.springdoc</groupId>
+			<artifactId>springdoc-openapi-ui</artifactId>
+			<version>1.6.11</version>
+		</dependency>
+
 	</dependencies>
 
 	<build>

@@ -1,8 +1,9 @@
-package com.jgr.basico.controller;
+package com.jgr.basico.spring.doc.controller;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 import javax.annotation.PostConstruct;
@@ -17,7 +18,14 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
 import com.github.javafaker.Faker;
-import com.jgr.basico.error.CharacterNotFound;
+import com.jgr.basico.spring.doc.error.CharacterNotFound;
+
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.media.ArraySchema;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
 
 /**
  * The Class CharacterController.
@@ -108,12 +116,23 @@ public class CharacterController {
 
 	}
 	
+	/**
+	 * Gets the characters yoda.
+	 *
+	 * @return the characters yoda
+	 */
 	@GetMapping("/yoda")
 	public ResponseEntity<?> getCharactersYoda() {
 		
 		return ResponseEntity.ok(charactersYoda);
 		
 	}
+	
+	/**
+	 * Gets the characters witcher.
+	 *
+	 * @return the characters witcher
+	 */
 	@GetMapping("/witcher")
 	public ResponseEntity<?> getCharactersWitcher() {
 		
@@ -129,11 +148,31 @@ public class CharacterController {
 	 * @return the string
 	 */
 	@GetMapping("/juegotronos/{name}")
-	public String buscaCharactersGameOfThrones(@PathVariable("name") String name) {
+	@Operation(summary = "Busca un personaje en juego de tronos")//descripcion de lo que hace
+	@ApiResponses(value = { 
+			//si devuelve 200 ha ido ok y devuelve los personales en formato json, un string
+	  @ApiResponse(responseCode = "200", description = "Encontrado", 
+	    content =  { @Content(mediaType = "application/json",
+	    array =@ArraySchema(schema=@Schema(implementation = String.class))) }),
+		//si devuelve 404 devuelve un mensaje de que no ha encontrado nada
+	  @ApiResponse(responseCode = "404", description = "Characters not found", 
+	    content = @Content) })
+	public ResponseEntity<?> buscaCharactersGameOfThrones(@PathVariable("name") String name) {
 
-		return charactersGame.stream().filter(c -> c.equals(name)).findAny().orElseThrow(
-				() -> new ResponseStatusException(HttpStatus.NOT_FOUND, String.format("%s no encontrado", name)));
-
+		
+		Optional<String> salida = charactersGame.stream().filter(c -> c.equals(name)).findAny();
+		
+		if (salida.isPresent()) {
+			return  ResponseEntity.ok(salida.get());
+			
+		}else {
+			return ResponseEntity.status(HttpStatus.NOT_FOUND).
+					body( String.format("%s no encontrado", name));
+					//build(HttpStatus.NOT_FOUND, String.format("%s no encontrado", name));
+			
+		}
+		
+	
 	}
 	
 	/**
