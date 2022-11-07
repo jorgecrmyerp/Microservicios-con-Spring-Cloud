@@ -15,7 +15,7 @@ PushLog="/dev/null"
 # Mensaje
 message=$@
 if [ -z "$message" ]; then
-message="$(date)2022-11-07 ELIMINADA CARPETA MIOS"
+message="$(date)2022-11-07 PTE TERMINAR DOCKER PARA EL GATEWAY"
 fi
 
 git add .

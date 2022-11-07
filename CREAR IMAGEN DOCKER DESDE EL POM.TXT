@@ -1,0 +1,138 @@
+ESTA HECHO EN EL AL-SPRING-GATEWAY-DOCKER
+-EN EL ARTIFACT/NAME SOLO ADMITE MINUSCULAS
+-EN EL PROPERTIES PONGO EL NOMBRE QUE LE VOY A DAR
+	<docker.image.prefix>gateway-docker</docker.image.prefix>
+-EN EL PLUGIN PONER ESTAS DEPENDENCIAS
+	<!-- PARA QUE CONSTRUYA EL DOCKER-->
+			<plugin>
+				<groupId>com.spotify</groupId>
+				<artifactId>dockerfile-maven-plugin</artifactId>
+				<version>1.4.13</version>
+				<configuration>
+					<repository> ${docker.image.prefix}/${project.artifactId}
+					</repository>
+					<tag>${project.version}</tag>
+					<buildArgs>
+						<JAR_FILE>target/${project.build.finalName}.jar</JAR_FILE>
+					</buildArgs>
+				</configuration>
+				<executions>
+					<execution>
+						<id>default</id>
+						<phase>install</phase>
+						<goals>
+							<goal>build</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+
+EL FICHERO DOCKERFILE SE HACE COMO SIEMPRE
+			
+#Start with a base image containing Java runtime
+FROM openjdk:11-slim                                       
+
+# Add Maintainer Info
+LABEL maintainer="Alex <jorgecrmyerp@gmail.com>"
+
+# The application's jar file
+ARG JAR_FILE    
+
+RUN echo ${JAR_FILE}                                           
+
+# Add the application's jar to the container
+COPY ${JAR_FILE} /app.jar       
+
+#execute the application
+ENTRYPOINT ["java"	
+	
+	
+LUEGO HACER RUN AS-MAVEN INSTALL PARA QUE LO GENERE. EL NOMBRE SALE EN LA CONSOLA:
+Image will be built as gateway-docker/al-spring-gateway-docker:V1 	
+
+
+
+
+cuando hago run as maven install se genera la imagen, en la consola sale  el nombre que le ha dado
+
+[[1;34mINFO[m] Scanning for projects...
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m-------< [0;36mcom.jgr.spring.gateway.docker:al-spring-gateway-docker[0;1m >-------[m
+[[1;34mINFO[m] [1mBuilding al-spring-gateway-docker V1[m
+[[1;34mINFO[m] [1m--------------------------------[ jar ]---------------------------------[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-resources-plugin:3.2.0:resources[m [1m(default-resources)[m @ [36mal-spring-gateway-docker[0;1m ---[m
+[[1;34mINFO[m] Using 'UTF-8' encoding to copy filtered resources.
+[[1;34mINFO[m] Using 'UTF-8' encoding to copy filtered properties files.
+[[1;34mINFO[m] Copying 1 resource
+[[1;34mINFO[m] Copying 0 resource
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-compiler-plugin:3.10.1:compile[m [1m(default-compile)[m @ [36mal-spring-gateway-docker[0;1m ---[m
+[[1;34mINFO[m] Nothing to compile - all classes are up to date
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-resources-plugin:3.2.0:testResources[m [1m(default-testResources)[m @ [36mal-spring-gateway-docker[0;1m ---[m
+[[1;34mINFO[m] Using 'UTF-8' encoding to copy filtered resources.
+[[1;34mINFO[m] Using 'UTF-8' encoding to copy filtered properties files.
+[[1;34mINFO[m] skip non existing resourceDirectory D:\Microservicios\Microservicios con Spring Cloud Alejandro Bautista\AL-spring-gateway-docker\src\test\resources
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-compiler-plugin:3.10.1:testCompile[m [1m(default-testCompile)[m @ [36mal-spring-gateway-docker[0;1m ---[m
+[[1;34mINFO[m] No sources to compile
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-surefire-plugin:2.22.2:test[m [1m(default-test)[m @ [36mal-spring-gateway-docker[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-jar-plugin:3.2.2:jar[m [1m(default-jar)[m @ [36mal-spring-gateway-docker[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mspring-boot-maven-plugin:2.7.5:repackage[m [1m(repackage)[m @ [36mal-spring-gateway-docker[0;1m ---[m
+[[1;34mINFO[m] Replacing main artifact with repackaged archive
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-install-plugin:2.5.2:install[m [1m(default-install)[m @ [36mal-spring-gateway-docker[0;1m ---[m
+[[1;34mINFO[m] Installing D:\Microservicios\Microservicios con Spring Cloud Alejandro Bautista\AL-spring-gateway-docker\target\al-spring-gateway-docker-V1.jar to C:\Users\JORGE\.m2\repository\com\jgr\spring\gateway\docker\al-spring-gateway-docker\V1\al-spring-gateway-docker-V1.jar
+[[1;34mINFO[m] Installing D:\Microservicios\Microservicios con Spring Cloud Alejandro Bautista\AL-spring-gateway-docker\pom.xml to C:\Users\JORGE\.m2\repository\com\jgr\spring\gateway\docker\al-spring-gateway-docker\V1\al-spring-gateway-docker-V1.pom
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mdockerfile-maven-plugin:1.4.13:build[m [1m(default)[m @ [36mal-spring-gateway-docker[0;1m ---[m
+[[1;34mINFO[m] dockerfile: null
+[[1;34mINFO[m] contextDirectory: D:\Microservicios\Microservicios con Spring Cloud Alejandro Bautista\AL-spring-gateway-docker
+[[1;34mINFO[m] Building Docker context D:\Microservicios\Microservicios con Spring Cloud Alejandro Bautista\AL-spring-gateway-docker
+[[1;34mINFO[m] Path(dockerfile): null
+[[1;34mINFO[m] Path(contextDirectory): D:\Microservicios\Microservicios con Spring Cloud Alejandro Bautista\AL-spring-gateway-docker
+[[1;34mINFO[m] 
+[[1;34mINFO[m] Image will be built as gateway-docker/al-spring-gateway-docker:V1
+[[1;34mINFO[m] 
+[[1;34mINFO[m] Step 1/6 : FROM openjdk:11-slim
+[[1;34mINFO[m] 
+[[1;34mINFO[m] Pulling from library/openjdk
+[[1;34mINFO[m] Digest: sha256:868a4f2151d38ba6a09870cec584346a5edc8e9b71fde275eb2e0625273e2fd8
+[[1;34mINFO[m] Status: Image is up to date for openjdk:11-slim
+[[1;34mINFO[m]  ---> 8e687a82603f
+[[1;34mINFO[m] Step 2/6 : LABEL maintainer="Alex <jorgecrmyerp@gmail.com>"
+[[1;34mINFO[m] 
+[[1;34mINFO[m]  ---> Using cache
+[[1;34mINFO[m]  ---> 42bff740293b
+[[1;34mINFO[m] Step 3/6 : ARG JAR_FILE
+[[1;34mINFO[m] 
+[[1;34mINFO[m]  ---> Using cache
+[[1;34mINFO[m]  ---> bcc9caa2cef8
+[[1;34mINFO[m] Step 4/6 : RUN echo ${JAR_FILE}
+[[1;34mINFO[m] 
+[[1;34mINFO[m]  ---> Using cache
+[[1;34mINFO[m]  ---> d512c9f42ed1
+[[1;34mINFO[m] Step 5/6 : COPY ${JAR_FILE} /app.jar
+[[1;34mINFO[m] 
+[[1;34mINFO[m]  ---> Using cache
+[[1;34mINFO[m]  ---> 8b0a2f7dbfb3
+[[1;34mINFO[m] Step 6/6 : ENTRYPOINT ["java","-jar","/app.jar"]
+[[1;34mINFO[m] 
+[[1;34mINFO[m]  ---> Using cache
+[[1;34mINFO[m]  ---> 916431baa637
+[[1;34mINFO[m] Successfully built 916431baa637
+[[1;34mINFO[m] Successfully tagged gateway-docker/al-spring-gateway-docker:V1
+[[1;34mINFO[m] 
+[[1;34mINFO[m] Detected build of image with id 916431baa637
+[[1;34mINFO[m] Successfully built gateway-docker/al-spring-gateway-docker:V1
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
+[[1;34mINFO[m] [1;32mBUILD SUCCESS[m
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
+[[1;34mINFO[m] Total time:  03:17 min
+[[1;34mINFO[m] Finished at: 2022-11-07T13:00:16+01:00
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
+[[1;33mWARNING[m] The requested profile "pom.xml" could not be activated because it does not exist.
