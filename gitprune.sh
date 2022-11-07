@@ -15,7 +15,7 @@ PushLog="/dev/null"
 # Mensaje
 message=$@
 if [ -z "$message" ]; then
-message="$(date)2022-11-07 PROMETHEUS++grafana"
+message="$(date)2022-11-07 empezamos con docker"
 fi
 
 start=`date +%s`
