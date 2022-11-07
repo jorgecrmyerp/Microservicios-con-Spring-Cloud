@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.jgr.spring.gateway.docker</groupId>
-	<artifactId>al-spring-gateway-docker</artifactId>
+	<artifactId>al-spring-gateway-docker-NO LEE EUREKA,VER SI ES POR CONEXION CON CLOUD CONFIG</artifactId>
 	<version>V1</version>
 	<name>al-spring-gateway-docker</name>
 	<description>Demo project for Spring Boot</description>

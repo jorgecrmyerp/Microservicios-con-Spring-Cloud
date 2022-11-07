@@ -123,14 +123,14 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "localhost:8888/devs4j-dragon-ball/default",
+							"raw": "localhost:8888/servicio-gateway-docker/noeureka",
 							"host": [
 								"localhost"
 							],
 							"port": "8888",
 							"path": [
-								"devs4j-dragon-ball",
-								"default"
+								"servicio-gateway-docker",
+								"noeureka"
 							]
 						}
 					},

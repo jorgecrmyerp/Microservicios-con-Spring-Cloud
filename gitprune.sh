@@ -15,7 +15,7 @@ PushLog="/dev/null"
 # Mensaje
 message=$@
 if [ -z "$message" ]; then
-message="$(date)2022-11-07 empezamos con docker"
+message="$(date)2022-11-07 EMPEZANDO CON CLOUD STREAM"
 fi
 
 start=`date +%s`
