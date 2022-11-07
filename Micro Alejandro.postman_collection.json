@@ -859,6 +859,110 @@
 					"response": []
 				}
 			]
+		},
+		{
+			"name": "AM-cache",
+			"item": [
+				{
+					"name": "AsignarAlumnoThreadSleep",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8002/asignar-alumno/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8002",
+							"path": [
+								"asignar-alumno",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AltaAlumnoThreadSleep",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8002/alta-alumno",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8002",
+							"path": [
+								"alta-alumno"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetAlumnos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8001",
+							"host": [
+								"localhost"
+							],
+							"port": "8001"
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetCursos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8002",
+							"host": [
+								"localhost"
+							],
+							"port": "8002"
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ListarCursos Copy",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8002",
+							"host": [
+								"localhost"
+							],
+							"port": "8002"
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ListarAlumnos Copy",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8001",
+							"host": [
+								"localhost"
+							],
+							"port": "8001"
+						}
+					},
+					"response": []
+				}
+			]
 		}
 	]
 }
