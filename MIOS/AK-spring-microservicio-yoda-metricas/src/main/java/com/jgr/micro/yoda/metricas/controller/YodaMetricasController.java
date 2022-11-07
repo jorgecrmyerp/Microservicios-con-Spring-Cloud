@@ -18,8 +18,7 @@ import com.github.javafaker.Faker;
 import com.jgr.micro.yoda.metricas.feign.client.SuperHeroClientFeign;
 
 import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
-
-
+import io.micrometer.core.instrument.MeterRegistry;
 
 /**
  * The Class YodaMetricasController.
@@ -42,21 +41,19 @@ public class YodaMetricasController {
 
 	/** The characters game. */
 	private List<String> charactersYoda;
-	
+
 	@Autowired
 	private ServletWebServerApplicationContext webServerAppCtxt;
-	
+
+	// metricas
+	@Autowired
+	private MeterRegistry meterRegistry;
+
 	/** The instance id. */
 	@Value("${eureka.instance.instance-id}")
 	private String instanceId;
-	
-	
-	
-	
-	private static final Logger log =LoggerFactory.getLogger(YodaMetricasController.class);
-	
 
-
+	private static final Logger log = LoggerFactory.getLogger(YodaMetricasController.class);
 
 	/**
 	 * Gets the characters yoda.
@@ -65,8 +62,7 @@ public class YodaMetricasController {
 	 */
 	@GetMapping(value = { "/", "", " ", "/yoda" })
 	public ResponseEntity<?> getCharactersYoda() {
-			
-	
+		meterRegistry.counter("YodaMetricasController"+ "getCharactersYoda()").increment();
 
 		return (ResponseEntity<?>) circuitBreakerFactory.create("micro-yoda-resiliencia").run(
 				() -> ResponseEntity.ok(devuelveCaracteres()), // esto es lo que haria si va bien
@@ -80,10 +76,10 @@ public class YodaMetricasController {
 	 * 
 	 * @return the response entity
 	 */
-	@CircuitBreaker(name = "micro-yoda-resiliencia",fallbackMethod="alternativaError")
-	@GetMapping(value = { "/yoda/circuit" })	
+	@CircuitBreaker(name = "micro-yoda-resiliencia", fallbackMethod = "alternativaError")
+	@GetMapping(value = { "/yoda/circuit" })
 	public ResponseEntity<?> circuitBreakerYoda() {
-			
+		meterRegistry.counter("YodaMetricasController"+ "circuitBreakerYoda()").increment();
 
 		return ResponseEntity.ok(devuelveCaracteres());
 	}
@@ -94,7 +90,9 @@ public class YodaMetricasController {
 	 * @return the iterable
 	 */
 	private Iterable<String> devuelveCaracteres() {
-			
+		
+		meterRegistry.counter("YodaMetricasController" + "devuelveCaracteres()").increment();
+
 		charactersYoda = new ArrayList<>();
 
 		for (int i = 0; i < 10; i++) {
@@ -112,19 +110,19 @@ public class YodaMetricasController {
 	}
 
 	/**
-	 * Alternativa error.
-	 * IMPORTANTE QUE TENGA EL THROWABLE,SI NO DA ERROR
+	 * Alternativa error. IMPORTANTE QUE TENGA EL THROWABLE,SI NO DA ERROR
 	 *
 	 * @return the response entity
 	 */
 	private ResponseEntity<?> alternativaError(Throwable e) {
-		System.out.println("alternativaError" + e.getLocalizedMessage() 
-		+e.getMessage());		
-		
-		
-		return  superHeroClientFeign.getCharactersFailOver();
-		
-		//return (Iterable<String>) superHeroClientFeign.getCharactersAlternativa().getBody();
+
+		meterRegistry.counter("YodaMetricasController"+ "alternativaError(Throwable e)").increment();
+		System.out.println("alternativaError" + e.getLocalizedMessage() + e.getMessage());
+
+		return superHeroClientFeign.getCharactersFailOver();
+
+		// return (Iterable<String>)
+		// superHeroClientFeign.getCharactersAlternativa().getBody();
 	}
 
 }

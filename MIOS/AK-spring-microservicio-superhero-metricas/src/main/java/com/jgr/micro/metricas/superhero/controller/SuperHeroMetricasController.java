@@ -20,6 +20,8 @@ import com.github.javafaker.Faker;
 
 import brave.Span;
 import brave.Tracer;
+import io.micrometer.core.annotation.Timed;
+import io.micrometer.core.instrument.MeterRegistry;
 
 @RestController
 //@RequestMapping("/failover")
@@ -33,19 +35,24 @@ public class SuperHeroMetricasController {
 
 	@Autowired
 	private ServletWebServerApplicationContext webServerAppCtxt;
-	
 
+	// metricas
+	@Autowired
+	private MeterRegistry meterRegistry;
 
 	/** The instance id. */
 	@Value("${eureka.instance.instance-id}")
 	private String instanceId;
-	
 
 	@GetMapping(value = { "/", "", " ", "/superhero" })
+	//para controlar el tiempo de ejecucion,buscarla en actuator
+	//
+	@Timed("metrica-time")
 	public ResponseEntity<?> getCharactersFailOver() {
-				
-		
-		
+		//buscando en actuator aparece esta metrica con el nombre
+		//
+		meterRegistry.counter("SuperHeroMetricasController" + "->getCharactersFailOver()").increment();
+
 		String puerto = String.valueOf(webServerAppCtxt.getWebServer().getPort());
 
 		charactersFailOver = new ArrayList<>();
@@ -57,8 +64,7 @@ public class SuperHeroMetricasController {
 		for (int i = 0; i < 10; i++) {
 			faker = new Faker();
 
-			charactersFailOver.add("Puerto->".concat(puerto).concat(" Instancia->")
-					.concat(instanceId).concat("->")
+			charactersFailOver.add("Puerto->".concat(puerto).concat(" Instancia->").concat(instanceId).concat("->")
 					.concat(faker.lordOfTheRings().character().concat("->")
 							.concat(new Faker().lordOfTheRings().location())));
 
@@ -70,8 +76,8 @@ public class SuperHeroMetricasController {
 
 	@GetMapping(value = { "/alternativa" })
 	public ResponseEntity<?> getCharactersAlternativa() {
-	
-	
+		meterRegistry.counter("SuperHeroMetricasController" + "->getCharactersAlternativa()").increment();
+
 		charactersFailOver = new ArrayList<>();
 
 		charactersFailOver.add("*******************************************************");

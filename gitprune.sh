@@ -15,7 +15,7 @@ PushLog="/dev/null"
 # Mensaje
 message=$@
 if [ -z "$message" ]; then
-message="$(date)2022-11-07 PRIMERA SUBIDA DEL DIA"
+message="$(date)2022-11-07 PROMETHEUS"
 fi
 
 start=`date +%s`

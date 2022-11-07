@@ -8,6 +8,7 @@
 
 ### MIO ###
 drivers/
+prometheus/
 *.avi
 *.mp4
 *.jpg
