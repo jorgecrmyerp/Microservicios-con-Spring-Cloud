@@ -21,8 +21,6 @@ public class GatewayConfiguracion {
 	private String perfil;
 	
 	
-	
-	
 	@Bean
 	public RouteLocator configLocalEureka(RouteLocatorBuilder builder) {
 		log.debug("EN EUREKA");
