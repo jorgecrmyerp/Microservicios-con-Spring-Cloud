@@ -725,11 +725,11 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "localhost:9090/actuator",
+							"raw": "localhost:9091/actuator",
 							"host": [
 								"localhost"
 							],
-							"port": "9090",
+							"port": "9091",
 							"path": [
 								"actuator"
 							]
@@ -743,11 +743,11 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "localhost:9090/actuator/metrics/jvm.memory.used?tag:area:heap",
+							"raw": "localhost:9091/actuator/metrics/jvm.memory.used?tag:area:heap",
 							"host": [
 								"localhost"
 							],
-							"port": "9090",
+							"port": "9091",
 							"path": [
 								"actuator",
 								"metrics",
@@ -834,6 +834,25 @@
 								"actuator",
 								"metrics",
 								"metrica-time"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ConsultaGatewaySuperheroMetricas",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:9091/api/superhero",
+							"host": [
+								"localhost"
+							],
+							"port": "9091",
+							"path": [
+								"api",
+								"superhero"
 							]
 						}
 					},
