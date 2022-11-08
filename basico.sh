@@ -15,7 +15,7 @@ PushLog="/dev/null"
 # Mensaje
 message=$@
 if [ -z "$message" ]; then
-message="$(date)2022-11-07 PTE TERMINAR DOCKER PARA EL GATEWAY"
+message="$(date)2022-11-08 microservicios cache redis nuevos"
 fi
 
 git add .
