@@ -10,6 +10,8 @@
 drivers/
 prometheus/
 grafana/
+kafka/
+configservercloud/
 *.avi
 *.mp4
 *.jpg

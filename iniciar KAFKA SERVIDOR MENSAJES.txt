@@ -1,0 +1,5 @@
+-ENTRANDO EN LA CARPETA BIN\WINDOWS ejecutamos zookeeper
+zookeeper-server-start.bat ..\..\config\zookeeper.properties
+
+-desde la misma carpeta arrancamos el servidor kafka
+.\kafka-server-start.bat ..\..\config\server.properties

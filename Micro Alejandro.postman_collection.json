@@ -1071,6 +1071,218 @@
 					"response": []
 				}
 			]
+		},
+		{
+			"name": "AN-cache-redis",
+			"item": [
+				{
+					"name": "AsignarAlumnoThreadSleep",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8002/asignar-alumno/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8002",
+							"path": [
+								"asignar-alumno",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AltaAlumnoThreadSleep",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8002/alta-alumno",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8002",
+							"path": [
+								"alta-alumno"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetAlumnos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8001",
+							"host": [
+								"localhost"
+							],
+							"port": "8001"
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetCursos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8002",
+							"host": [
+								"localhost"
+							],
+							"port": "8002"
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ListarCursos Copy",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"id\":1,\r\n        \"nombre\": \"ALUMNO\",\r\n        \"email\": \"email1@asdf.com\",\r\n        \"password\": \"PASSWORD2\",\r\n        \"createAt\": \"2022-10-31T15:39:30.344+00:00\"\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8002/asignar-alumno/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8002",
+							"path": [
+								"asignar-alumno",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ListarAlumnos Copy",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8001",
+							"host": [
+								"localhost"
+							],
+							"port": "8001"
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AltaAlumnoCursoRedis",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": " {\r\n        \r\n        \"nombre\": \"ALUMNO97\",\r\n        \"email\": \"email97@asdf.com\",\r\n        \"password\": \"PASSWORD1\",\r\n        \"createAt\": \"2022-10-31T15:39:30.344+00:00\"\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8002/alta-alumno/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8002",
+							"path": [
+								"alta-alumno",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AsignarAlumnoCursoPruebaRedis",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"id\":3,\r\n        \"nombre\": \"ALUMNO\",\r\n        \"email\": \"email1@asdf.com\",\r\n        \"password\": \"PASSWORD2\",\r\n        \"createAt\": \"2022-10-31T15:39:30.344+00:00\"\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8002/asignar-alumno/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8002",
+							"path": [
+								"asignar-alumno",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "BuscaCursosPorIdRedis",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8002/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8002",
+							"path": [
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "LimpiaCacheRedis",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8002/limpiar-cache",
+							"host": [
+								"localhost"
+							],
+							"port": "8002",
+							"path": [
+								"limpiar-cache"
+							]
+						}
+					},
+					"response": []
+				}
+			]
 		}
 	]
 }
