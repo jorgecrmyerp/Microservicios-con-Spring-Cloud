@@ -15,7 +15,7 @@ PushLog="/dev/null"
 # Mensaje
 message=$@
 if [ -z "$message" ]; then
-message="$(date)2022-11-08 microservicios cache redis nuevos"
+message="$(date)2022-11-08 TERMINADO EL CACHE"
 fi
 
 git add .

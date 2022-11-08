@@ -1,0 +1,15 @@
+lo descargamos de docker
+docker pull redis
+
+--lo ejecuto en el 6379 y creo contenedor servidor-redis
+docker run -d -p 6379:6379 --name servidor-redis redis
+
+--para entrar en el servidor
+ docker exec -it servidor-redis sh
+
+luego pongo redis-cli y sale 127.0.01:6379>
+
+creo una clave que es la usare luego
+
+ set servidor-redis-key servidor-redis-rules
+

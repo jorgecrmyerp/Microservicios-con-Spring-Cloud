@@ -1,4 +1,4 @@
-package com.jgr.micro.cursos.cache.models.controller;
+package com.jgr.micro.cursos.cache.redis.controller;
 
 import java.util.Collections;
 import java.util.HashMap;
@@ -21,13 +21,12 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.jgr.micro.cursos.cache.models.entity.Alumno;
-import com.jgr.micro.cursos.cache.models.entity.Curso;
-import com.jgr.micro.cursos.cache.service.ICursoService;
+import com.jgr.micro.cursos.cache.redis.models.entity.Alumno;
+import com.jgr.micro.cursos.cache.redis.models.entity.Curso;
+import com.jgr.micro.cursos.cache.redis.service.ICursoService;
 
 import feign.FeignException;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class CursoController.
  */
