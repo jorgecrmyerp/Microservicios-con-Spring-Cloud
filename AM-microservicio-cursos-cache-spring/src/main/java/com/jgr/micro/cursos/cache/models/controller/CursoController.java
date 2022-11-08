@@ -28,6 +28,7 @@ import com.jgr.micro.cursos.cache.service.ICursoService;
 
 import feign.FeignException;
 
+// TODO: Auto-generated Javadoc
 /**
  * The Class CursoController.
  */
@@ -277,7 +278,6 @@ public class CursoController {
 	 * Eliminar curso_alumno por alumnoid.
 	 *
 	 * @param id     the id
-	 * @param result the result
 	 * @return the response entity
 	 */
 	@DeleteMapping("eliminar-curso-alumno/{id}")
@@ -292,5 +292,19 @@ public class CursoController {
 		return ResponseEntity.notFound().build();
 		
 	}
+	
+	/**
+	 * Limpia cache.
+	 *
+	 * @return the response entity
+	 */
+	@DeleteMapping("limpiar-cache")
+	public ResponseEntity<?> limpiaCache() {
+		service.limpiarCache();
+		
+		return ResponseEntity.ok("Cache limpio");
+		
+	}
+	
 
 }

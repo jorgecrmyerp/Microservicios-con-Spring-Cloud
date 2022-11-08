@@ -5,6 +5,7 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
@@ -31,6 +32,7 @@ public class CursoServiceImpl implements ICursoService {
 	@Autowired
 	private AlumnoFeign alumnoFeign;
 
+	/** The retardo. */
 	// para usarlo en los metodos sleep
 	private static int retardo = 2000;
 
@@ -268,6 +270,18 @@ public class CursoServiceImpl implements ICursoService {
 	public void eliminarCursoUsuarioPorId(Long id) {
 		iCursoRepository.eliminarCursoUsuarioPorId(id);
 
+	}
+	
+	/**
+	 * Limpiar cache.
+	 */
+	@CacheEvict("configuracionCache")
+	public void limpiarCache() {
+		
+		System.out.println("**************************");
+		System.out.println("LIMPIAR CACHE CursoServiceImpl" );
+		System.out.println("**************************");
+		
 	}
 
 }

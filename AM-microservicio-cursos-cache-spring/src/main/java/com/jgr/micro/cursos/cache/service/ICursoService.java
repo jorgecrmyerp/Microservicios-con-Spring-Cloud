@@ -93,4 +93,10 @@ public interface ICursoService {
  	 * @param id the id
  	 */
  	public void eliminarCursoUsuarioPorId(Long id);
+ 	
+ 	
+ 	/**
+	  * Limpiar cache.
+	  */
+	 public void limpiarCache();
 }

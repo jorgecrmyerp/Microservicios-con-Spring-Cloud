@@ -15,7 +15,7 @@ PushLog="/dev/null"
 # Mensaje
 message=$@
 if [ -z "$message" ]; then
-message="$(date) 2022-11-05 con zipkin"
+message="$(date) 2022-11-07 terminado cache spring"
 fi
 
 start=`date +%s`

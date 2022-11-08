@@ -861,7 +861,7 @@
 			]
 		},
 		{
-			"name": "AM-cache",
+			"name": "AM-cache-spring",
 			"item": [
 				{
 					"name": "AsignarAlumnoThreadSleep",
@@ -1047,6 +1047,24 @@
 							"port": "8002",
 							"path": [
 								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "LimpiaCache",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8002/limpiar-cache",
+							"host": [
+								"localhost"
+							],
+							"port": "8002",
+							"path": [
+								"limpiar-cache"
 							]
 						}
 					},

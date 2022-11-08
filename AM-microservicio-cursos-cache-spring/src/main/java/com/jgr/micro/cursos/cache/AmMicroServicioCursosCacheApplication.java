@@ -12,6 +12,7 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
  *  *  http://localhost:8002/asignar-alumno/
  *  http://localhost:8002/alta-alumno
  *  localhost:8002/1
+ *  tambien creo un limpiar cache que NO es obligatorio que sea un endpòint del controlador
  *  creo CursosConfiguracionCache en el microservicio cursos
  *  en estos metodos en la capa de servicio de cursos les he puesto un sleep para que tarde mas
  *  

@@ -8,9 +8,9 @@
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.jgr.micro.alumnos.cache.cache</groupId>
-	<artifactId>AM-microservicio-alumnos-cache</artifactId>
+	<artifactId>AM-microservicio-alumnos-cache-spring</artifactId>
 	<version>V1</version>
-	<name>AM-microservicio-alumnos-cache</name>
+	<name>AM-microservicio-alumnos-cache-spring</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
 		<java.version>11</java.version>
