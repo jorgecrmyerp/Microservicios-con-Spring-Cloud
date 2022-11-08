@@ -3,3 +3,22 @@ zookeeper-server-start.bat ..\..\config\zookeeper.properties
 
 -desde la misma carpeta arrancamos el servidor kafka
 .\kafka-server-start.bat ..\..\config\server.properties
+
+-CREAR TOPIC KAFKA
+esta en el puerto 9092,creo un topic que se llama jorge-topic  con 3 particiones en un nodo
+.\kafka-topics.bat --bootstrap-server localhost:9092 --create --topic jorge-topic --partitions 3 --replication-factor 1
+
+--LISTAR TOPIC
+.\kafka-topics.bat  --list --bootstrap-server localhost:9092 
+.\kafka-topics.bat  --describe --topic jorge-topic --bootstrap-server localhost:9092
+
+--CREAR PRODUCER
+.\kafka-console-producer.bat --topic jorge-topic --bootstrap-server localhost:9092
+
+si en > que sale ponemos "hola"
+
+--CREAR CONSUMER(se queda parado a la espera de que envien algo)
+.\kafka-console-consumer.bat --topic jorge-topic --bootstrap-server localhost:9092
+
+al enviar "hola" desde el producer le llega al consumer
+

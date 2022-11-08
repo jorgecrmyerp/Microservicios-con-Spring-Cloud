@@ -15,7 +15,7 @@ PushLog="/dev/null"
 # Mensaje
 message=$@
 if [ -z "$message" ]; then
-message="$(date)2022-11-08 131-cache"
+message="$(date)2022-11-08 EMPEZANDO A CREAR SERVICIO KAFKA"
 fi
 
 start=`date +%s`

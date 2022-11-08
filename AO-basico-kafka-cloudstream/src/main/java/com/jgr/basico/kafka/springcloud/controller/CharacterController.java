@@ -1,4 +1,4 @@
-package com.jgr.basico.spring.doc.controller;
+package com.jgr.basico.kafka.springcloud.controller;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
 import com.github.javafaker.Faker;
-import com.jgr.basico.spring.doc.error.CharacterNotFound;
+import com.jgr.basico.kafka.springcloud.error.CharacterNotFound;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.ArraySchema;
