@@ -17,7 +17,7 @@ import lombok.NoArgsConstructor;
  * The Class Alumno.
  */
 @Entity
-@Table(name="alumnos")
+@Table(name = "alumnos")
 
 /**
  * Instantiates a new alumno.
@@ -27,9 +27,9 @@ import lombok.NoArgsConstructor;
 /**
  * Instantiates a new alumno.
  *
- * @param id the id
- * @param nombre the nombre
- * @param email the email
+ * @param id       the id
+ * @param nombre   the nombre
+ * @param email    the email
  * @param password the password
  * @param createAt the create at
  */
@@ -43,30 +43,30 @@ import lombok.NoArgsConstructor;
 @Data
 public class Alumno {
 
-    /** The id. */
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+	/** The id. */
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
 
-    /** The nombre. */    
-	@NotBlank//no admite blancos en el nombre,y no puede estar vacio
-    private String nombre;
+	/** The nombre. */
+	@NotBlank // no admite blancos en el nombre,y no puede estar vacio
+	private String nombre;
 
-    /** The email. */
-	@NotEmpty(message="Email erroneo")
+	/** The email. */
+	@NotEmpty(message = "Email erroneo")
 	@Column(unique = true)
 	@Email
-    private String email;
+	private String email;
 
-    /** The password. */	
+	/** The password. */
 	@NotBlank
-    private String password;
-    
-    /** The create at. */
-    @Column(name = "create_at")
+	private String password;
+
+	/** The create at. */
+	@Column(name = "create_at")
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date createAt;
-    
+
 	/**
 	 * Pre persist.
 	 */
@@ -91,8 +91,5 @@ public class Alumno {
 	public int hashCode() {
 		return Objects.hash(id);
 	}
-	
-	
-	
 
 }

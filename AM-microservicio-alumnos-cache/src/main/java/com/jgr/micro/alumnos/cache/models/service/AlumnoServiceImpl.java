@@ -19,11 +19,10 @@ public class AlumnoServiceImpl implements IAlumnoService {
 	/** The alumno repository. */
 	@Autowired
 	private IAlumnoRepository alumnoRepository;
-	
-	
+
 	/** The curso cliente feign. */
 	@Autowired
-	private CursoClienteFeign cursoClienteFeign; 
+	private CursoClienteFeign cursoClienteFeign;
 
 	/**
 	 * Find all.
@@ -63,8 +62,8 @@ public class AlumnoServiceImpl implements IAlumnoService {
 	}
 
 	/**
-	 * Delete por id.
-	 * borra alumno y da de baja la relacion curso_alumno en el microservicio cursos
+	 * Delete por id. borra alumno y da de baja la relacion curso_alumno en el
+	 * microservicio cursos
 	 *
 	 * @param id the id
 	 */
@@ -73,13 +72,13 @@ public class AlumnoServiceImpl implements IAlumnoService {
 	public void delete(Long id) {
 		alumnoRepository.deleteById(id);
 		cursoClienteFeign.eliminarCursoAlumnoId(id);
-		
 
 	}
 
 	/**
-	 * Delete por alumno.
-	 * borra alumno y da de baja la relacion curso_alumno en el microservicio cursos
+	 * Delete por alumno. borra alumno y da de baja la relacion curso_alumno en el
+	 * microservicio cursos
+	 * 
 	 * @param al the al
 	 */
 	@Override

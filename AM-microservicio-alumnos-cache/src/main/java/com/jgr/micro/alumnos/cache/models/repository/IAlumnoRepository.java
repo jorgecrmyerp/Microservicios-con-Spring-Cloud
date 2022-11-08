@@ -8,22 +8,21 @@ import org.springframework.data.repository.CrudRepository;
 
 import com.jgr.micro.alumnos.cache.models.Alumno;
 
-
 // TODO: Auto-generated Javadoc
 /**
  * The Interface IAlumnosRepository.
  */
 
 public interface IAlumnoRepository extends CrudRepository<Alumno, Long> {
-	
+
 	/**
 	 * Find by email.
 	 *
 	 * @param email the email
 	 * @return the optional
 	 */
-	public Optional <Alumno> findByEmail(String email);
-	
+	public Optional<Alumno> findByEmail(String email);
+
 	/**
 	 * Por email.
 	 *
@@ -31,9 +30,8 @@ public interface IAlumnoRepository extends CrudRepository<Alumno, Long> {
 	 * @return the optional
 	 */
 	@Query("select al from Alumno al where al.email=?1")
-	public Optional <Alumno> porEmail(String email);
-	
-	
+	public Optional<Alumno> porEmail(String email);
+
 	/**
 	 * Exist by email.
 	 *
@@ -41,6 +39,5 @@ public interface IAlumnoRepository extends CrudRepository<Alumno, Long> {
 	 * @return true, if successful
 	 */
 	public boolean existsByEmail(String email);
-	
 
 }

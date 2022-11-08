@@ -5,6 +5,7 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -29,6 +30,9 @@ public class CursoServiceImpl implements ICursoService {
 	/** The alumno feign. RELACION CON EL CLIENTE FEIGN */
 	@Autowired
 	private AlumnoFeign alumnoFeign;
+
+	// para usarlo en los metodos sleep
+	private static int retardo = 2000;
 
 	/**
 	 * Find all.
@@ -60,7 +64,7 @@ public class CursoServiceImpl implements ICursoService {
 	 * @return the optional
 	 */
 	@Override
-	@Transactional(readOnly = true)	
+	@Transactional(readOnly = true)
 	public Optional<Curso> findById(Long id) {
 		return iCursoRepository.findById(id);
 	}
@@ -90,9 +94,9 @@ public class CursoServiceImpl implements ICursoService {
 	}
 
 	/**
-	 * Asignar alumno. asignamos el alumno que SI existe al curso con id que pasamos por parametro
-	 * obtenemos el alumno con feign, lo relacionamos con el curso y lo guardamos en
-	 * bbdd
+	 * Asignar alumno. asignamos el alumno que SI existe al curso con id que pasamos
+	 * por parametro obtenemos el alumno con feign, lo relacionamos con el curso y
+	 * lo guardamos en bbdd
 	 * 
 	 * @param alumno  the alumno
 	 * @param cursoid the cursoid
@@ -100,15 +104,18 @@ public class CursoServiceImpl implements ICursoService {
 	 */
 	@Override
 	@Transactional
+	@Cacheable("configuracionCache") // para que lo busque en cache primero
 	public Optional<Alumno> asignarAlumnoCurso(Alumno alumno, Long cursoid) {
 
 		// buscamos el curso
 		Optional<Curso> cursoOp = iCursoRepository.findById(cursoid);
 
-		System.out.println("asignar alumno curso,curso->"+cursoOp.get().getNombre());
-		
+		System.out.println("**************************");
+		System.out.println("asignar alumno curso,curso->" + cursoOp.get().getNombre());
+		System.out.println("**************************");
 		if (cursoOp.isPresent()) {
-			//alumno de bbdd obtenido con feign
+			// alumno de bbdd obtenido con feign
+			System.out.println("existe");
 			Alumno alClient = alumnoFeign.detalleAlumno(alumno.getId());
 			Curso curso = cursoOp.get();
 			CursoAlumno cursoAlumno = new CursoAlumno();
@@ -117,21 +124,20 @@ public class CursoServiceImpl implements ICursoService {
 			iCursoRepository.save(curso);
 			return Optional.of(alClient);
 		}
-		
-		//PARA QUE TARDE MAS
+
+		// PARA QUE TARDE MAS Y PROBAR EL CACHE
 		try {
-			Thread.sleep(1000);
+			Thread.sleep(retardo);
 		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
 		return Optional.empty();
 
 	}
 
 	/**
-	 * Alta alumno en curso. Damos de alta un alumno que no existe y lo guardamos en bbdd
+	 * Alta alumno en curso. Damos de alta un alumno que no existe y lo guardamos en
+	 * bbdd
 	 *
 	 * @param alumno  the alumno
 	 * @param cursoid the cursoid
@@ -139,12 +145,19 @@ public class CursoServiceImpl implements ICursoService {
 	 */
 	@Override
 	@Transactional
+	@Cacheable("configuracionCache") // para que lo busque en cache primero
 	public Optional<Alumno> altaAlumnoCurso(Alumno alumno, Long cursoid) {
+
 		// buscamos el curso
 		Optional<Curso> cursoOp = iCursoRepository.findById(cursoid);
 
+		System.out.println("**************************");
+		System.out.println("ALTA alumno curso,curso->" + cursoOp.get().getNombre());
+		System.out.println("**************************");
+
 		if (cursoOp.isPresent()) {
-			//alumno de bbdd obtenido con feign
+			System.out.println("existe");
+			// alumno de bbdd obtenido con feign
 			Alumno alClient = alumnoFeign.altaAlumno(alumno);
 			Curso curso = cursoOp.get();
 			CursoAlumno cursoAlumno = new CursoAlumno();
@@ -153,12 +166,11 @@ public class CursoServiceImpl implements ICursoService {
 			iCursoRepository.save(curso);
 			return Optional.of(alClient);
 		}
-		
-		//PARA QUE TARDE MAS
+
+		// PARA QUE TARDE MAS Y PROBAR EL CACHE
 		try {
-			Thread.sleep(1000);
+			Thread.sleep(retardo);
 		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
@@ -179,53 +191,66 @@ public class CursoServiceImpl implements ICursoService {
 		Optional<Curso> cursoOp = iCursoRepository.findById(cursoid);
 
 		if (cursoOp.isPresent()) {
-			  Alumno al = alumnoFeign.detalleAlumno(alumno.getId());
-			  Curso curso = cursoOp.get();
-	          CursoAlumno cursoAlumno = new CursoAlumno();
-	          cursoAlumno.setAlumnoId(al.getId());
-	          cursoAlumno.setId(cursoid);
-	          curso.removeCursoAlumno(cursoAlumno);
-	          iCursoRepository.save(curso);
-	          return Optional.of(al);
+			Alumno al = alumnoFeign.detalleAlumno(alumno.getId());
+			Curso curso = cursoOp.get();
+			CursoAlumno cursoAlumno = new CursoAlumno();
+			cursoAlumno.setAlumnoId(al.getId());
+			cursoAlumno.setId(cursoid);
+			curso.removeCursoAlumno(cursoAlumno);
+			iCursoRepository.save(curso);
+			return Optional.of(al);
 		}
 
 		return Optional.empty();
 	}
 
 	/**
-	 * Le pasamos el id de un curso y nos devuelve el curso con los alumnos relacionados.
+	 * Le pasamos el id de un curso y nos devuelve el curso con los alumnos
+	 * relacionados.
 	 *
 	 * @param cursoId the curso id
 	 * @return the optional curso con los alumnos relacionados
 	 */
 	@Override
 	@Transactional(readOnly = true)
+	@Cacheable("configuracionCache") // para que lo busque en cache primero
 	public Optional<Curso> alumnosCursoporIdCurso(Long cursoId) {
 
 		Optional<Curso> cursoOp = iCursoRepository.findById(cursoId);
-		
+
+		System.out.println("**************************");
+		System.out.println("BUSCA ALUMNO CURSO,curso->" + cursoOp.get().getNombre());
+		System.out.println("**************************");
+
 		if (cursoOp.isPresent()) {
 			Curso curso = cursoOp.get();
-			
+
 			if (!curso.getCursoAlumnos().isEmpty()) {
-			
-				//del curso obtenemos el id del alumno relacionado en alumno_cursos
-				List<Long> ids = curso.getCursoAlumnos().stream(). //lo convierto a stream
-						map(cursoAlumno->cursoAlumno.getAlumnoId()). //lo paso al formato cursoAlumno						
-						collect(Collectors.toList());//lo convierto a lista
-				//esta seria otra manera de hacerlo igual
+
+				// del curso obtenemos el id del alumno relacionado en alumno_cursos
+				List<Long> ids = curso.getCursoAlumnos().stream(). // lo convierto a stream
+						map(cursoAlumno -> cursoAlumno.getAlumnoId()). // lo paso al formato cursoAlumno
+						collect(Collectors.toList());// lo convierto a lista
+				// esta seria otra manera de hacerlo igual
 				/*
-				List<Long> ids2 = curso.getCursoAlumnos().stream().
-						map(CursoAlumno::getAlumnoId).collect(Collectors.toList());
+				 * List<Long> ids2 = curso.getCursoAlumnos().stream().
+				 * map(CursoAlumno::getAlumnoId).collect(Collectors.toList());
 				 */
-				//obtenemos el detalle de los alumnos por lista de idalumnos
-				
+				// obtenemos el detalle de los alumnos por lista de idalumnos
+
 				List<Alumno> alumnos = (List<Alumno>) alumnoFeign.alumnosCursoRequestParam(ids);
 
 				curso.setAlumnos(alumnos);
 
-
 			}
+
+			// PARA QUE TARDE MAS Y PROBAR EL CACHE
+			try {
+				Thread.sleep(retardo);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+
 			return Optional.of(curso);
 
 		}
@@ -242,7 +267,7 @@ public class CursoServiceImpl implements ICursoService {
 	@Transactional
 	public void eliminarCursoUsuarioPorId(Long id) {
 		iCursoRepository.eliminarCursoUsuarioPorId(id);
-		
+
 	}
 
 }

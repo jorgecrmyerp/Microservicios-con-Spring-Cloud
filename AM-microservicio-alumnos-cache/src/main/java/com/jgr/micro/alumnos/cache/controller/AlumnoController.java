@@ -1,4 +1,5 @@
 package com.jgr.micro.alumnos.cache.controller;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -48,8 +49,9 @@ public class AlumnoController {
 	public ResponseEntity<?> listarAlumnos() {
 
 		return ResponseEntity.ok(iAlumnoService.findAll());
-		
+
 	}
+
 	/**
 	 * Obtener alumno por id path variable.
 	 *
@@ -58,16 +60,15 @@ public class AlumnoController {
 	 */
 	@GetMapping("/{id}")
 	public ResponseEntity<?> obtenerAlumnoPorIdPathVariable(@PathVariable Long id) {
-		
-		
+
 		logger.debug("***************en pathvariable*****************");
 		Optional<Alumno> al = iAlumnoService.findById(id);
-		
+
 		if (al.isPresent()) {
 			return ResponseEntity.ok(iAlumnoService.findById(id));
 		}
 		return ResponseEntity.notFound().build();
-		
+
 	}
 
 	/**
@@ -78,7 +79,7 @@ public class AlumnoController {
 	 */
 	@GetMapping("/request-param/")
 	public ResponseEntity<?> obtenerAlumnoPorIdRequestParam(@RequestParam Long id) {
-		
+
 		logger.debug("******en REQUESTPARAM**************");
 		Optional<Alumno> al = iAlumnoService.findById(id);
 
@@ -127,48 +128,47 @@ public class AlumnoController {
 
 	}
 
-    /**
-     * Validar.
-     *
-     * @param result the result
-     * @return the response entity
-     */
-    private ResponseEntity<Map<String, String>> validar(BindingResult result) {
-    	
-        Map<String, String> errores = new HashMap<>();
-        result.getFieldErrors().forEach(err -> {
-        	errores.put(err.getField(), "El campo " + err.getField() + " " + err.getDefaultMessage());
-            errores.put("DefaultMessage", err.getDefaultMessage());
-            errores.put("Code", err.getCode());
-            errores.put("Name", err.getObjectName());
-            
-        });
-        return ResponseEntity.badRequest().body(errores);
-    }
+	/**
+	 * Validar.
+	 *
+	 * @param result the result
+	 * @return the response entity
+	 */
+	private ResponseEntity<Map<String, String>> validar(BindingResult result) {
+
+		Map<String, String> errores = new HashMap<>();
+		result.getFieldErrors().forEach(err -> {
+			errores.put(err.getField(), "El campo " + err.getField() + " " + err.getDefaultMessage());
+			errores.put("DefaultMessage", err.getDefaultMessage());
+			errores.put("Code", err.getCode());
+			errores.put("Name", err.getObjectName());
+
+		});
+		return ResponseEntity.badRequest().body(errores);
+	}
 
 	/**
 	 * Alta alumno.
 	 *
-	 * @param al the al
+	 * @param al     the al
 	 * @param result the result
 	 * @return the response entity
 	 */
 	@PostMapping
 	public ResponseEntity<?> altaAlumno(@Valid @RequestBody Alumno al, BindingResult result) {
-		
-		System.out.println("en alta alumnos"+al.toString());
-		
-		
+
+		System.out.println("en alta alumnos" + al.toString());
+
 		if (result.hasErrors()) {
-            return validar(result);
-        }
-		
-		if(!al.getEmail().isEmpty() && iAlumnoService.findByEmail(al.getEmail()).isPresent()) {
-			return ResponseEntity.badRequest().
-					body(Collections.singletonMap("mensaje","Ya existe un alumno con ese email"));
-			
+			return validar(result);
 		}
-		
+
+		if (!al.getEmail().isEmpty() && iAlumnoService.findByEmail(al.getEmail()).isPresent()) {
+			return ResponseEntity.badRequest()
+					.body(Collections.singletonMap("mensaje", "Ya existe un alumno con ese email"));
+
+		}
+
 		Alumno alDb = new Alumno();
 		alDb.setNombre(al.getNombre());
 		alDb.setEmail(al.getEmail());
@@ -199,7 +199,7 @@ public class AlumnoController {
 		return ResponseEntity.noContent().build();
 
 	}
-	
+
 	/**
 	 * Borra alumno alumno.
 	 *
@@ -208,37 +208,36 @@ public class AlumnoController {
 	 */
 	@DeleteMapping("/borra-alumno")
 	public ResponseEntity<?> borraAlumnoAlumno(@Valid @RequestBody Alumno al) {
-		
+
 		Optional<Alumno> o = iAlumnoService.findById(al.getId());
-		
+
 		if (!o.isPresent()) {
 			logger.debug("Microservicio Alumno->actualizaAlumno");
-			
+
 			return ResponseEntity.notFound().build();
 		}
 		iAlumnoService.delete(al);
 		return ResponseEntity.noContent().build();
-		
+
 	}
-	
-	
+
 	/**
-	 * Alumnos curso request param.
-	 *a partir de una lista de long con los id de alumnos devuelve el detalle de los alumnos
+	 * Alumnos curso request param. a partir de una lista de long con los id de
+	 * alumnos devuelve el detalle de los alumnos
+	 * 
 	 * @param ids the ids
 	 * @return the response entity
 	 */
 	@GetMapping("/alumnos-por-curso")
 	public ResponseEntity<?> alumnosCursoRequestParam(@RequestParam List<Long> ids) {
-		
-		logger.debug("alumnoz-AlumnosCursoREquest->"+ids.get(0));
-		List <Alumno> lista = new ArrayList<>();
-		
+
+		logger.debug("alumnoz-AlumnosCursoREquest->" + ids.get(0));
+		List<Alumno> lista = new ArrayList<>();
+
 		lista.forEach(System.out::println);
-		
-		
+
 		return ResponseEntity.ok(iAlumnoService.findAllById(ids));
-		
+
 	}
 
 }

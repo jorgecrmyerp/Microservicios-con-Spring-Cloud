@@ -5,14 +5,15 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class AmMicroServicioCursosCacheApplication.
  *  * para probar el tratamiento del cache
- *  probar con asignarAlumnoCurso/altaAlumnoCurso del microservicio cursos
+ *  probar con asignarAlumnoCurso/altaAlumnoCurso/buscacurso por id  detalle del microservicio cursos
  *  *  http://localhost:8002/asignar-alumno/
  *  http://localhost:8002/alta-alumno
- *  en estos metodos le he puesto un sleep para que tarde
+ *  localhost:8002/1
+ *  creo CursosConfiguracionCache en el microservicio cursos
+ *  en estos metodos en la capa de servicio de cursos les he puesto un sleep para que tarde mas
  *  
  */
 @SpringBootApplication
